@@ -1,8 +1,9 @@
 "use client";
 
 import { useAuth, useClerk, UserButton } from "@clerk/nextjs";
-// import { Authenticated, Unauthenticated, AuthLoading } from "convex/react";
-import Image from "next/image";
+
+
+export const runtime = 'edge'
 
 export default function Home() {
   const clerk = useClerk();
