@@ -1,9 +1,11 @@
-import { db } from "@/drizzle-orm";
+import { makeDB } from "@/drizzle-orm";
 import { emailList } from "@/schema";
 
 export const runtime = "edge";
 
 export default async function Home() {
+  const db = makeDB();
+
   await db.insert(emailList).values({
     email: "test@example.com",
   });
