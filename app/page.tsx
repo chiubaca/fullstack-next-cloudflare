@@ -1,9 +1,16 @@
+import { auth } from "@/auth";
+import { SignInButton } from "@/components/sign-in";
+
 export const runtime = "edge";
 
 export default async function Home() {
+  const session = await auth();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hello
+    <main className="flex flex-col items-center gap-2">
+      <SignInButton />
+
+      {session ? <>Hello {session?.user?.name}</> : <> You are signed out</>}
     </main>
   );
 }
