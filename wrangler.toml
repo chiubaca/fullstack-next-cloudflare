@@ -1,5 +1,5 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "cf-pages-next-app"
+name = "fullstack-cloudflare-nextjs"
 compatibility_date = "2024-04-19"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
@@ -19,10 +19,10 @@ pages_build_output_dir = ".vercel/output/static"
 
 # Bind a D1 database. D1 is Cloudflare’s native serverless SQL database.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#d1-databases
-[[d1_databases]]
-binding = "DB" # i.e. available in your Worker on env.DB
-database_name = "prod-d1-tutorial"
-database_id = "90bb9cd5-6740-436e-94fb-9510e8846240"
+# [[d1_databases]]
+# binding = "DB" # i.e. available in your Worker on env.DB
+# database_name = "prod-d1-tutorial"
+# database_id = "90bb9cd5-6740-436e-94fb-9510e8846240"
 
 # Bind a Durable Object. Durable objects are a scale-to-zero compute primitive based on the actor model.
 # Durable Objects can live for as long as needed. Use these when you need a long-running "server", such as in realtime apps.
