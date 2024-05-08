@@ -7,7 +7,7 @@ export default async function Home() {
   const session = await auth();
 
   return (
-    <main className="flex flex-col items-center gap-2">
+    <main className="">
       <SignInButton />
 
       {session ? <>Hello {session?.user?.name}</> : <> You are signed out</>}
