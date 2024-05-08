@@ -1,6 +1,8 @@
 import { auth } from "@/auth";
 import { SignInButton } from "@/components/sign-in";
 
+export const runtime = "edge";
+
 export default async function Home() {
   const session = await auth();
 
