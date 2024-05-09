@@ -1,12 +1,17 @@
-import { auth } from "@/auth";
-import { SignInButton } from "@/components/sign-in";
-import { db } from "@/orm";
-import { todo } from "@/schemas";
+import { drizzle } from "drizzle-orm/d1";
 import { revalidatePath } from "next/cache";
+import { getRequestContext } from "@cloudflare/next-on-pages";
+
+import { auth } from "@/auth";
+import { todo } from "@/schemas";
+import { SignInButton } from "@/components/sign-in";
 
 export const runtime = "edge";
 
 export default async function Home() {
+  const APP_DB = getRequestContext().env.APP_DB;
+  const db = drizzle(APP_DB);
+
   const session = await auth();
 
   const todos = await db.select().from(todo);
