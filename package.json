@@ -11,7 +11,9 @@
     "preview": "npm run pages:build && wrangler pages dev",
     "deploy": "npm run pages:build && wrangler pages deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
-    "orm-typegen": "drizzle-kit generate:sqlite --schema=./schemas.ts"
+    "orm-typegen": "drizzle-kit generate:sqlite --schema=./schemas.ts",
+    "setup-db:local": "npx wrangler d1 execute app_db --local --file=./drizzle/0000_cool_chat.sql",
+    "setup-db": "npx wrangler d1 execute app_db --remote --file=./drizzle/0000_cool_chat.sql"
   },
   "dependencies": {
     "@libsql/client": "^0.6.0",
