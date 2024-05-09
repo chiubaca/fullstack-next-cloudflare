@@ -1,15 +1,10 @@
-import { getRequestContext } from "@cloudflare/next-on-pages";
-import { drizzle } from "drizzle-orm/d1";
-
 import { auth } from "@/auth";
 import { SignInButton } from "@/components/sign-in";
+import { db } from "@/orm";
 import { todo } from "@/schemas";
 import { revalidatePath } from "next/cache";
 
 export const runtime = "edge";
-
-const DB = getRequestContext().env.APP_DB;
-const db = drizzle(DB);
 
 export default async function Home() {
   const session = await auth();
